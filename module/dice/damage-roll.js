@@ -85,7 +85,7 @@ export default class DamageRoll extends Roll {
 
     // Add extra critical damage term
     if ( this.isCritical && this.options.criticalBonusDamage ) {
-      const extra = new Roll(this.options.criticalBonusDamage, this.data);
+      const extra = term.number; //[EDIT]new Roll(this.options.criticalBonusDamage, this.data);
       if ( !(extra.terms[0] instanceof OperatorTerm) ) this.terms.push(new OperatorTerm({operator: "+"}));
       this.terms.push(...extra.terms);
     }
